@@ -56,7 +56,7 @@
 
 - **用法**:
     1.  在脚本中修改 `input_path` 和 `output_path` 变量，以指定输入和输出文件。
-    2.  在 `if __name__ == "__main__":` 部分，取消注释你想要应用的效果函数。
+    2.  在 `if __name__ == "__main__":` 部分，取消注释想要应用的效果函数。
     3.  运行脚本: `python fourier_beats.py`。
 
 ## `killer_sudoku.py`
@@ -74,8 +74,8 @@
     - 谜题通过“笼子”（cages）来定义，即一组总和固定的单元格。
 
 - **用法**:
-    1.  在脚本中定义你的杀手数独谜题的 `cages` 结构。脚本内已包含几个示例。
-    2.  在 `solver = KillerSudokuSolver(cages_5)` 这一行选择你要使用的谜题。
+    1.  在脚本中定义杀手数独谜题的 `cages` 结构。脚本内已包含几个示例。
+    2.  在 `solver = KillerSudokuSolver(cages_5)` 这一行选择要使用的谜题。
     3.  通过设置 `solver.solve(visualization=False)` 中的 `visualization` 参数来启用或禁用可视化。
     4.  运行脚本: `python killer_sudoku.py`。
 
@@ -110,7 +110,7 @@
 
 - **用法**:
     1.  确保 `FFXVRT.exe` 在脚本的运行目录下。
-    2.  根据你的需求，修改脚本中的文件路径和音乐映射。
+    2.  根据需求，修改脚本中的文件路径和音乐映射。
     3.  运行脚本: `python music_replace.py`。
 
 ## `rmvb_avi_to_mp4.py`
