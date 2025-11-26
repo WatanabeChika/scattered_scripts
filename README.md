@@ -4,6 +4,17 @@
 
 某些脚本在 [Wana_Blog](https://watanabechika.github.io/Wana_blog) 中出现且有详细说明，下面会具体标注。
 
+## 目录
+
+- [ffmpeg_multi_process.py](#ffmpeg_multi_processpy)
+- [fourier_beats.py](#fourier_beatspy)
+- [killer_sudoku.py](#killer_sudokupy)
+- [mp3_to_ogg.py](#mp3_to_oggpy)
+- [music_replace_for_ff15.py](#music_replace_for_ff15py)
+- [rmvb_avi_to_mp4.py](#rmvb_avi_to_mp4py)
+- [spider_for_llwiki_bpm.py](#spider_for_llwiki_bpmpy)
+
+
 ## `ffmpeg_multi_process.py`
 
 - **动机**:
@@ -127,8 +138,12 @@
         - 转换后删除原文件: `python rmvb_avi_to_mp4.py <输入目录> -r`
 
 ## `spider_for_llwiki_bpm.py`
+详见：[通过BPM挑选合适的歌曲](https://watanabechika.github.io/Wana_blog/posts/coding/bpm_check.html)
 
-- **作用**:
+- **动机**:
+    统计瘾犯了，且想找到符合步调的适合步行/跑步时听的歌。
+
+- **介绍**:
     一个网络爬虫，用于从 `llwiki.org` 网站上抓取《Love Live!》系列所有歌曲的BPM（每分钟节拍数）信息。
 
 - **功能**:
