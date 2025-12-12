@@ -6,6 +6,7 @@
 
 ## 目录
 
+- [common_ygo_cards.py](#common_ygo_cardspy)
 - [ffmpeg_multi_process.py](#ffmpeg_multi_processpy)
 - [fourier_beats.py](#fourier_beatspy)
 - [killer_sudoku.py](#killer_sudokupy)
@@ -13,6 +14,28 @@
 - [music_replace_for_ff15.py](#music_replace_for_ff15py)
 - [rmvb_avi_to_mp4.py](#rmvb_avi_to_mp4py)
 - [spider_for_llwiki_bpm.py](#spider_for_llwiki_bpmpy)
+
+
+## `common_ygo_cards.py`
+
+- **动机**:
+    在做 [Wana_tools](https://github.com/WatanabeChika/Wana_tools) 的游戏王卡图猜猜乐时，为了降低难度，想到只获取常用卡片。而 MyCard 的 MCPro 决斗数据库中正好有卡片使用率统计。于是写脚本以获取数据。
+
+- **介绍**:
+    该脚本会调用 MyCard 的接口，遍历多个时间维度与数据来源，将返回数据中所有分类的卡片 `id` 收集、去重并保存为 `common_cards.json`。**最大用途是给 Github Action 提供自动更新脚本。**
+
+- **功能**:
+    - 遍历时间区间与来源组合，自动批量请求并进度提示。
+    - 从返回 JSON 的各分类中提取 `id`，使用集合去重。
+    - 结果排序后输出到本地 `common_cards.json`。
+    - 每次请求间隔 2 秒，降低被限流风险。
+
+- **用法**:
+    - 在脚本所在目录执行：
+      ```powershell
+      python .\common_ygo_cards.py
+      ```
+    - 运行完成后在当前目录生成 `common_cards.json`，内容为去重后的卡片 ID 列表。
 
 
 ## `ffmpeg_multi_process.py`
