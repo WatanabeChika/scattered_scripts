@@ -16,7 +16,6 @@
 - [spider_for_llwiki_bpm.py](#spider_for_llwiki_bpmpy)
 - [video_object_panorama.py](#video_object_panorama.py)
 
-
 ## `common_ygo_cards.py`
 
 - **动机**:
@@ -37,7 +36,6 @@
       python .\common_ygo_cards.py
       ```
     - 运行完成后在当前目录生成 `common_cards.json`，内容为去重后的卡片 ID 列表。
-
 
 ## `ffmpeg_multi_process.py`
 
@@ -81,7 +79,7 @@
 - **用法**:
     1.  在脚本中修改 `input_path` 和 `output_path` 变量，以指定输入和输出文件。
     2.  在 `if __name__ == "__main__":` 部分，取消注释想要应用的效果函数。
-    3.  运行脚本: `python fourier_beats.py`。
+    3.  运行脚本：`python fourier_beats.py`。
 
 ## `killer_sudoku.py`
 详见：[Kill the Killer-Sudoku problem](https://watanabechika.github.io/Wana_blog/posts/coding/maybe_useful/killer_sudoku.html)
@@ -101,12 +99,12 @@
     1.  在脚本中定义杀手数独谜题的 `cages` 结构。脚本内已包含几个示例。
     2.  在 `solver = KillerSudokuSolver(cages_5)` 这一行选择要使用的谜题。
     3.  通过设置 `solver.solve(visualization=False)` 中的 `visualization` 参数来启用或禁用可视化。
-    4.  运行脚本: `python killer_sudoku.py`。
+    4.  运行脚本：`python killer_sudoku.py`。
 
 ## `mp3_to_ogg.py`
 
 - **动机**:
-    游戏《欧洲卡车模拟2》（Euro Truck Simulator 2）只能解析 OGG 格式的音频格式文件，需要批量转换格式的脚本。
+    游戏《欧洲卡车模拟 2》（Euro Truck Simulator 2）只能解析 OGG 格式的音频格式文件，需要批量转换格式的脚本。
 
 - **介绍**:
     一个在 MP3 和 OGG 音频格式之间进行批量转换的工具。
@@ -116,17 +114,17 @@
     - 使用多线程并行处理，转换速度快。
 
 - **用法**:
-    1.  运行脚本: `python mp3_to_ogg.py`。
+    1.  运行脚本：`python mp3_to_ogg.py`。
     2.  根据提示，依次输入源文件夹路径、目标文件夹路径以及转换方向（`1` 代表 MP3 -> OGG，`2` 代表 OGG -> MP3）。
 
 ## `music_replace_for_ff15.py`
 详见：[雷迦利亚牌随身听，启动](https://watanabechika.github.io/Wana_blog/posts/acg/game/ff15_radio.html)
 
 - **动机**:
-    想在《最终幻想15》（Final Fantasy XV）里开车听自己的音乐，但是该游戏自定义音乐文件较麻烦，于是写脚本。
+    想在《最终幻想 15》（Final Fantasy XV）里开车听自己的音乐，但是该游戏自定义音乐文件较麻烦，于是写脚本。
 
 - **介绍**:
-    这是一个非常特殊的脚本，用于替换游戏《最终幻想15》中的车载音乐。
+    这是一个非常特殊的脚本，用于替换游戏《最终幻想 15》中的车载音乐。
 
 - **功能**:
     - 依赖一个名为 `FFXVRT.exe` 的外部工具。
@@ -135,7 +133,7 @@
 - **用法**:
     1.  确保 `FFXVRT.exe` 在脚本的运行目录下。
     2.  根据需求，修改脚本中的文件路径和音乐映射。
-    3.  运行脚本: `python music_replace.py`。
+    3.  运行脚本：`python music_replace.py`。
 
 ## `rmvb_avi_to_mp4.py`
 
@@ -157,18 +155,18 @@
         python rmvb_avi_to_mp4.py <要扫描的目录路径>
         ```
     - **高级选项**:
-        - 指定输出目录: `python rmvb_avi_to_mp4.py <输入目录> -o <输出目录>`
-        - 覆盖已存在文件: `python rmvb_avi_to_mp4.py <输入目录> -f`
-        - 转换后删除原文件: `python rmvb_avi_to_mp4.py <输入目录> -r`
+        - 指定输出目录：`python rmvb_avi_to_mp4.py <输入目录> -o <输出目录>`
+        - 覆盖已存在文件：`python rmvb_avi_to_mp4.py <输入目录> -f`
+        - 转换后删除原文件：`python rmvb_avi_to_mp4.py <输入目录> -r`
 
 ## `spider_for_llwiki_bpm.py`
-详见：[通过BPM挑选合适的歌曲](https://watanabechika.github.io/Wana_blog/posts/coding/maybe_useful/bpm_check.html)
+详见：[通过 BPM 挑选合适的歌曲](https://watanabechika.github.io/Wana_blog/posts/coding/maybe_useful/bpm_check.html)
 
 - **动机**:
     统计瘾犯了，且想找到符合步调的适合步行/跑步时听的歌。
 
 - **介绍**:
-    一个网络爬虫，用于从 `llwiki.org` 网站上抓取《Love Live!》系列所有歌曲的BPM（每分钟节拍数）信息。
+    一个网络爬虫，用于从 `llwiki.org` 网站上抓取《Love Live!》系列所有歌曲的 BPM（每分钟节拍数）信息。
 
 - **功能**:
     - `get_all_bpm`: 爬取所有歌曲的 BPM 并保存到 `data.json`。
@@ -177,9 +175,10 @@
 
 - **用法**:
     1.  在 `if __name__ == '__main__':` 部分，按需调用 `get_all_bpm()`、`data_process()` 或 `draw_bpm()` 函数。
-    2.  运行脚本: `python spider_for_llwiki_bpm.py`。
+    2.  运行脚本：`python spider_for_llwiki_bpm.py`。
 
 ## `video_object_panorama.py`
+详见：[移动竹管，能窥见整只猎豹吗？](https://watanabechika.github.io/Wana_blog/posts/coding/maybe_useful/panorama_in_video.html)
 - **动机**:
     在给动画整理截图的时候想到的：有的场景一张截图截不完，能够通过视频处理得到一张连续的全景图就好了。
 
@@ -188,8 +187,8 @@
 
 - **功能**:
     - 依次进行抽帧、特征提取以及全景拼接。
-    - 优先使用SIFT算法智能识别视频片段中的图像特征，计算每张关键帧图片的单应性矩阵后通过正确的方式融合拼接在一起。
-    - 在特征提取和图像扭曲阶段采用多线程处理加速，在图像叠加混合阶段采用向量化加速。
+    - 优先使用 SIFT 算法智能识别视频片段中的图像特征，计算每张关键帧图片的单应性矩阵后通过正确的方式融合拼接在一起。
+    - 在特征提取和图像扭曲阶段采用多线程处理加速，在图像叠加混合阶段采用向量化处理和 ROI 局部运算加速。
 
 - **用法**:
     运行脚本 `python video_object_panorama.py <input_video> <output_image> --start <start_time> --end <end_time> [--sample-fps <fps>]`
