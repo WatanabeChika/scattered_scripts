@@ -14,6 +14,7 @@
 - [music_replace_for_ff15.py](#music_replace_for_ff15py)
 - [rmvb_avi_to_mp4.py](#rmvb_avi_to_mp4py)
 - [spider_for_llwiki_bpm.py](#spider_for_llwiki_bpmpy)
+- [video_object_panorama.py](#video_object_panorama.py)
 
 
 ## `common_ygo_cards.py`
