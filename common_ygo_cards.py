@@ -70,7 +70,7 @@ def fetch_and_extract_ids():
                                         unique_ids.add(card['id'])
                                         current_batch_count += 1
                         
-                        print(f"    - 成功获取，本批次包含 {current_batch_count} 个ID")
+                        # print(f"    - 成功获取，本批次包含 {current_batch_count} 个ID")
                         success = True
                         break # 成功则跳出重试循环
                     else:

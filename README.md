@@ -63,7 +63,7 @@
         ```
 
 ## `fourier_beats.py`
-详见：[给歌曲加点特效](https://watanabechika.github.io/Wana_blog/posts/coding/audio_effect.html)
+详见：[给歌曲加点特效](https://watanabechika.github.io/Wana_blog/posts/coding/maybe_useful/audio_effect.md)
 
 - **动机**:
     看到一些“将歌曲的第二拍和第四拍互换”的视频，觉得很有意思，于是应运而生。
@@ -83,7 +83,7 @@
     3.  运行脚本: `python fourier_beats.py`。
 
 ## `killer_sudoku.py`
-详见：[Kill the Killer-Sudoku problem](https://watanabechika.github.io/Wana_blog/posts/coding/killer_sudoku.html)
+详见：[Kill the Killer-Sudoku problem](https://watanabechika.github.io/Wana_blog/posts/coding/maybe_useful/killer_sudoku.html)
 
 - **动机**:
     每天在 [Daily Killer Sudoku](https://www.dailykillersudoku.com/) 上做一道数独，于是自然想到能否让计算机做。之前有利用回溯法写过解决普通数独的算法 ~~（早忘了）~~，这次试试杀手数独。
@@ -119,7 +119,7 @@
     2.  根据提示，依次输入源文件夹路径、目标文件夹路径以及转换方向（`1` 代表 MP3 -> OGG，`2` 代表 OGG -> MP3）。
 
 ## `music_replace_for_ff15.py`
-详见：[雷迦利亚牌随身听，启动](https://watanabechika.github.io/Wana_blog/posts/acg/ff15_radio.html)
+详见：[雷迦利亚牌随身听，启动](https://watanabechika.github.io/Wana_blog/posts/acg/game/ff15_radio.html)
 
 - **动机**:
     想在《最终幻想15》（Final Fantasy XV）里开车听自己的音乐，但是该游戏自定义音乐文件较麻烦，于是写脚本。
@@ -161,7 +161,7 @@
         - 转换后删除原文件: `python rmvb_avi_to_mp4.py <输入目录> -r`
 
 ## `spider_for_llwiki_bpm.py`
-详见：[通过BPM挑选合适的歌曲](https://watanabechika.github.io/Wana_blog/posts/coding/bpm_check.html)
+详见：[通过BPM挑选合适的歌曲](https://watanabechika.github.io/Wana_blog/posts/coding/maybe_useful/bpm_check.html)
 
 - **动机**:
     统计瘾犯了，且想找到符合步调的适合步行/跑步时听的歌。
@@ -177,3 +177,18 @@
 - **用法**:
     1.  在 `if __name__ == '__main__':` 部分，按需调用 `get_all_bpm()`、`data_process()` 或 `draw_bpm()` 函数。
     2.  运行脚本: `python spider_for_llwiki_bpm.py`。
+
+## `video_object_panorama.py`
+- **动机**:
+    在给动画整理截图的时候想到的：有的场景一张截图截不完，能够通过视频处理得到一张连续的全景图就好了。
+
+- **介绍**:
+    一个通过解析视频片段，拼接全景图的脚本。
+
+- **功能**:
+    - 依次进行抽帧、特征提取以及全景拼接。
+    - 优先使用SIFT算法智能识别视频片段中的图像特征，计算每张关键帧图片的单应性矩阵后通过正确的方式融合拼接在一起。
+    - 在特征提取和图像扭曲阶段采用多线程处理加速，在图像叠加混合阶段采用向量化加速。
+
+- **用法**:
+    运行脚本 `python video_object_panorama.py <input_video> <output_image> --start <start_time> --end <end_time> [--sample-fps <fps>]`
