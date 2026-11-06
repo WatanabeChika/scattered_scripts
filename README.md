@@ -1,20 +1,88 @@
 # Scattered Scripts
 
-该仓库收集了一些用于不同目的的零散的 Python 脚本。为防止忘记在这里记录它们的用法。
+该仓库收集了一些用于不同目的的零散的 Python 和 JavaScript 脚本。为防止忘记在这里记录它们的用法。
 
 某些脚本在 [Wana_Blog](https://watanabechika.github.io/Wana_blog) 中出现且有详细说明，下面会具体标注。
 
 ## 目录
 
+- [activitywatch_yearbook.py](#activitywatch_yearbookpy)
+- [ass_name_to_video.py](#ass_name_to_videopy)
+- [bgm_cancel_process.js](#bgm_cancel_processjs)
+- [bgm_tag_stats.js](#bgm_tag_statsjs)
 - [common_ygo_cards.py](#common_ygo_cardspy)
+- [fetch_bgm_data.py](#fetch_bgm_datapy)
 - [ffmpeg_multi_process.py](#ffmpeg_multi_processpy)
 - [fourier_beats.py](#fourier_beatspy)
 - [killer_sudoku.py](#killer_sudokupy)
 - [mp3_to_ogg.py](#mp3_to_oggpy)
 - [music_replace_for_ff15.py](#music_replace_for_ff15py)
 - [rmvb_avi_to_mp4.py](#rmvb_avi_to_mp4py)
+- [shuiyuan_pin_to_unread.js](#shuiyuan_pin_to_unreadjs)
 - [spider_for_llwiki_bpm.py](#spider_for_llwiki_bpmpy)
 - [video_object_panorama.py](#video_object_panorama.py)
+
+## `activitywatch_yearbook.py`
+
+- **动机**:
+    activitywatch 是一个日常挂在电脑后台监控的软件，包括窗口、鼠标键盘点击、浏览器页面等。都监控一年了，这不得拿来总结总结。其实就是统计瘾犯了。
+
+- **介绍**:
+    这是一个读取本机后台 `activitywatch` 软件并生成结构化年度统计报告数据的脚本。通过直接对 `activitywatch` 监控端口发请求获取数据，因此省去了下载庞大的原始数据文件。
+
+- **功能**:
+    - 读取各类监控的桶数据。
+    - 分析这些数据，生成用于作图的结构化统计结果。
+
+- **用法**:
+    1. 在相同目录下放置个人分类配置 `aw-category-export-default.json`，然后再文件开头调整其余配置：端口号、数据年份等。
+    2. `python activitywatch_yearbook.py`
+
+## `ass_name_to_video.py`
+
+- **动机**:
+    很多时候，从另外网站下载的字幕和对应的视频名称完全不同，可能只有**指示集数的数字**相同。mpv 自动读取字幕脚本只能识别主文件名相同，只有后缀不同的字幕文件到对应的视频文件，因此有必要将文件名对应统一起来。
+
+- **介绍**:
+    修改目录下的所有字幕文件名称，使其和对应的视频名称相同。主要是通过指示集数的数字来对应的。
+
+- **功能**:
+    - 自动分析指示集数的数字来对应字幕文件和视频文件。支持两集合并的字幕（如 01~02），并按顺序一一对应视频。最后以视频文件名为准。
+    - 自动对指示语言的字幕文件名后缀进行处理（如 tc/sc），不影响数量匹配和结果。
+    - 支持 .ass/.ssa 文件。
+
+- **用法**:
+    - 将要处理的全部字幕文件放到和对应视频同一目录下。
+    - `python ass_name_to_video.py <文件夹> [-n]`，`-n` 表示试运行，不实际修改。
+
+## `bgm_cancel_process.js`
+
+- **动机**:
+    重刷动画的时候，格子是之前就点满了的，不能点格子记录进度。同时也和[点击看过时自动完成所有进度](https://bgm.tv/dev/app/461)互为镜像。
+
+- **介绍**:
+    点击在看时自动撤销所有进度。
+
+- **功能**:
+    在章节页面内修改收藏状态为在看，且所有单集（不含sp）都被标记为看过时，会自动撤销所有进度。对动画和三次元有效。
+
+- **用法**:
+    请在[ Bangumi 超合金组件处](https://bgm.tv/dev/app/5163)订阅该插件。
+
+## `bgm_tag_stats.js`
+
+- **动机**:
+    统计瘾犯了，加之 Bangumi 上还真没有对**标签**进行统计的插件。
+
+- **介绍**:
+    对用户收藏条目的标签进行统计。
+
+- **功能**:
+    - 对用户收藏条目中可用于筛选搜索的标签进行统计和可视化，默认只针对当前年份。入口在用户页简介下方。
+    - 使用 charts.js 进行可视化。
+
+- **用法**:
+    请在[ Bangumi 超合金组件处](https://bgm.tv/dev/app/5129)订阅该插件。
 
 ## `common_ygo_cards.py`
 
@@ -36,6 +104,23 @@
       python .\common_ygo_cards.py
       ```
     - 运行完成后在当前目录生成 `common_cards.json`，内容为去重后的卡片 ID 列表。
+
+## `fetch_bgm_data.py`
+
+- **动机**:
+    统计瘾犯了，动画相关数据也要总结出报告才行。
+
+- **介绍**:
+    对某一年用户看过的动画相关数据进行统计分析，包括时长、声优、制作公司、标签等。
+
+- **功能**:
+    - 通过 Bangumi API 获取各类数据。如果遇到没有标注时长的集数，根据该条目的类型（TV / 剧场版 / Web / OVA 等）进行估算。
+    - 分析这些数据，生成用于作图的结构化统计结果。
+
+- **用法**:
+    1. 在文件开头调整个人配置：ID、agent&token、**条目排除列表**等。
+    2. `python fetch_bgm_data.py`
+
 
 ## `ffmpeg_multi_process.py`
 
@@ -159,6 +244,21 @@
         - 覆盖已存在文件：`python rmvb_avi_to_mp4.py <输入目录> -f`
         - 转换后删除原文件：`python rmvb_avi_to_mp4.py <输入目录> -r`
 
+## `shuiyuan_pin_to_unread.js`
+
+- **动机**:
+    由于种种原因，水源社区里有些话题不会显示在“未读”页面（不知道是否是 discourse 的 bug），自己手动找又很麻烦，因此需要一个“置顶”功能。
+
+- **介绍**:
+    将想跟进的帖子固定在水源未读页面（/unread）顶部。
+
+- **功能**:
+    - 在话题页面可直接点击标题旁的置顶来固定话题。
+    - 在未读页面，被置顶的话题会固定显示在最上方。
+
+- **用法**:
+    将该脚本添加至油猴（tampermonkey，浏览器扩展）中，启用即可。
+
 ## `spider_for_llwiki_bpm.py`
 详见：[通过 BPM 挑选合适的歌曲](https://watanabechika.github.io/Wana_blog/posts/coding/maybe_useful/bpm_check.html)
 
@@ -183,7 +283,7 @@
     在给动画整理截图的时候想到的：有的场景一张截图截不完，能够通过视频处理得到一张连续的全景图就好了。
 
 - **介绍**:
-    一个通过解析视频片段，拼接全景图的脚本。
+    一个通过解析视频片段，拼接全景图的脚本。mpv 插件版点[这里](https://github.com/WatanabeChika/mpv-video-paronama-generator)。
 
 - **功能**:
     - 依次进行抽帧、特征提取以及全景拼接。
